@@ -48,17 +48,20 @@
                                                     <state key="normal" image="like_button_on"/>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="14 августа 2023" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G9E-01-66f" userLabel="Date Label">
-                                                    <rect key="frame" x="24" y="185" width="353" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <rect key="frame" x="24" y="188" width="152" height="18"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="18" id="g8L-1g-GkF"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                    <color key="textColor" name="YP White"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <color key="backgroundColor" name="YP Black"/>
                                             <constraints>
+                                                <constraint firstItem="G9E-01-66f" firstAttribute="trailing" secondItem="Kdt-Li-lhH" secondAttribute="trailing" constant="-201" id="1YV-8F-2vi"/>
                                                 <constraint firstAttribute="trailing" secondItem="Kdt-Li-lhH" secondAttribute="trailing" constant="16" id="3bt-bW-xz2"/>
                                                 <constraint firstItem="Kdt-Li-lhH" firstAttribute="leading" secondItem="Jr4-QB-f3A" secondAttribute="leading" constant="16" id="3c1-mm-eTk"/>
-                                                <constraint firstItem="G9E-01-66f" firstAttribute="trailing" secondItem="Kdt-Li-lhH" secondAttribute="trailing" id="5pg-wT-ayX"/>
                                                 <constraint firstItem="nZ2-r7-Pa5" firstAttribute="top" secondItem="Jr4-QB-f3A" secondAttribute="top" id="NHz-EG-Xm2"/>
                                                 <constraint firstAttribute="trailing" secondItem="nZ2-r7-Pa5" secondAttribute="trailing" constant="16" id="NWw-yM-ysU"/>
                                                 <constraint firstAttribute="bottom" secondItem="G9E-01-66f" secondAttribute="bottom" constant="12" id="RxM-ay-c8E"/>
@@ -102,7 +105,10 @@
         <image name="0" width="200" height="132"/>
         <image name="like_button_on" width="42" height="42"/>
         <namedColor name="YP Black">
-            <color red="0.10196078431372549" green="0.10588235294117647" blue="0.13333333333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.10199999809265137" green="0.10599999874830246" blue="0.13300000131130219" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="YP White">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
