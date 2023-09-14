@@ -17,13 +17,15 @@ final class ProfileViewController: UIViewController {
     //
     //    @IBAction private func didTapLogoutButton() {
     //    }
-  
+    
     private var label: UILabel?
     private var label2: UILabel?
     private var label3: UILabel?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        view.backgroundColor = .ypBlack
         
         let imageView = UIImageView(image: UIImage(named: "Avatar"))
         
@@ -38,11 +40,10 @@ final class ProfileViewController: UIViewController {
         label.text = "Екатерина Новикова"
         label.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(label)
-        label.textColor = .white
+        label.textColor = .ypWhite
         label.leadingAnchor.constraint(equalTo: imageView.leadingAnchor).isActive = true
         label.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 8).isActive = true
         self.label = label
-        label.widthAnchor.constraint(equalToConstant: 241).isActive = true
         label.heightAnchor.constraint(equalToConstant: 22).isActive = true
         label.font = UIFont.systemFont(ofSize: 23, weight: .bold)
         
@@ -50,11 +51,10 @@ final class ProfileViewController: UIViewController {
         label2.text = "@ekaterina_nov"
         label2.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(label2)
-        label2.textColor = .gray
+        label2.textColor = .ypGray
         label2.leadingAnchor.constraint(equalTo: label.leadingAnchor).isActive = true
         label2.topAnchor.constraint(equalTo: label.bottomAnchor, constant: 8).isActive = true
         self.label2 = label2
-        label2.widthAnchor.constraint(equalToConstant: 99).isActive = true
         label2.heightAnchor.constraint(equalToConstant: 18).isActive = true
         label2.font = UIFont.systemFont(ofSize: 13, weight: .regular)
         
@@ -62,11 +62,10 @@ final class ProfileViewController: UIViewController {
         label3.text = "Hello, world"
         label3.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(label3)
-        label3.textColor = .white
+        label3.textColor = .ypWhite
         label3.leadingAnchor.constraint(equalTo: label2.leadingAnchor).isActive = true
         label3.topAnchor.constraint(equalTo: label2.bottomAnchor, constant: 8).isActive = true
         self.label3 = label3
-        label3.widthAnchor.constraint(equalToConstant: 77).isActive = true
         label3.heightAnchor.constraint(equalToConstant: 18).isActive = true
         label3.font = UIFont.systemFont(ofSize: 13, weight: .regular)
         
@@ -75,7 +74,7 @@ final class ProfileViewController: UIViewController {
             target: self,
             action: #selector(Self.didTapButton)
         )
-        button.tintColor = .red
+        button.tintColor = .ypRed
         button.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(button)
         button.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -16).isActive = true
@@ -86,6 +85,13 @@ final class ProfileViewController: UIViewController {
     
     @objc private func didTapButton() {
     }
+}
+
+extension UIColor {
+    static let ypWhite = UIColor(named: "YPWhite")
+    static let ypRed = UIColor(named: "YPRed")
+    static let ypBlack = UIColor(named: "YPBlack")
+    static let ypGray = UIColor(named: "YPGray")
 }
 
 
