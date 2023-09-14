@@ -8,85 +8,95 @@
 import UIKit
 
 final class ProfileViewController: UIViewController {
-    //    @IBOutlet private var avatarImageView: UIImageView!
-    //    @IBOutlet private var nameLabel: UILabel!
-    //    @IBOutlet private var loginNameLabel: UILabel!
-    //    @IBOutlet private var descriptionLabel: UILabel!
-    //
-    //    @IBOutlet private var logoutButton: UIButton!
-    //
-    //    @IBAction private func didTapLogoutButton() {
-    //    }
     
-    private var label: UILabel?
-    private var label2: UILabel?
-    private var label3: UILabel?
+    private let profileImage: UIImageView = {
+        let profileImage = UIImageView()
+        profileImage.image = UIImage(named: "Avatar")
+        profileImage.translatesAutoresizingMaskIntoConstraints = false
+        return profileImage
+    }()
+    
+    private let nameLabel: UILabel = {
+        let nameLabel = UILabel()
+        nameLabel.text = "Екатерина Новикова"
+        nameLabel.font = .systemFont(ofSize: 23, weight: .bold)
+        nameLabel.textColor = .ypWhite
+        nameLabel.translatesAutoresizingMaskIntoConstraints = false
+        return nameLabel
+    }()
+    
+    private let nickLabel: UILabel = {
+        let nickLabel = UILabel()
+        nickLabel.text = "@ekaterina_nov"
+        nickLabel.font = .systemFont(ofSize: 13, weight: .regular)
+        nickLabel.textColor = .ypGray
+        nickLabel.translatesAutoresizingMaskIntoConstraints = false
+        return nickLabel
+    }()
+    
+    private let helloLabel: UILabel = {
+        let helloLabel = UILabel()
+        helloLabel.text = "Hello, world!"
+        helloLabel.font = .systemFont(ofSize: 13, weight: .regular)
+        helloLabel.textColor = .ypWhite
+        helloLabel.translatesAutoresizingMaskIntoConstraints = false
+        return helloLabel
+    }()
+    
+    private let exitButton: UIButton = {
+        let exitButton = UIButton()
+        exitButton.setImage(UIImage(named: "Exit_button"), for: .normal)
+        exitButton.translatesAutoresizingMaskIntoConstraints = false
+        return exitButton
+    }()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        addSubViews()
+        applyConstraints()
         view.backgroundColor = .ypBlack
-        
-        let imageView = UIImageView(image: UIImage(named: "Avatar"))
-        
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(imageView)
-        imageView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 16).isActive = true
-        imageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 32).isActive = true
-        imageView.widthAnchor.constraint(equalToConstant: 70).isActive = true
-        imageView.heightAnchor.constraint(equalToConstant: 70).isActive = true
-        
-        let label = UILabel()
-        label.text = "Екатерина Новикова"
-        label.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(label)
-        label.textColor = .ypWhite
-        label.leadingAnchor.constraint(equalTo: imageView.leadingAnchor).isActive = true
-        label.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 8).isActive = true
-        self.label = label
-        label.heightAnchor.constraint(equalToConstant: 22).isActive = true
-        label.font = UIFont.systemFont(ofSize: 23, weight: .bold)
-        
-        let label2 = UILabel()
-        label2.text = "@ekaterina_nov"
-        label2.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(label2)
-        label2.textColor = .ypGray
-        label2.leadingAnchor.constraint(equalTo: label.leadingAnchor).isActive = true
-        label2.topAnchor.constraint(equalTo: label.bottomAnchor, constant: 8).isActive = true
-        self.label2 = label2
-        label2.heightAnchor.constraint(equalToConstant: 18).isActive = true
-        label2.font = UIFont.systemFont(ofSize: 13, weight: .regular)
-        
-        let label3 = UILabel()
-        label3.text = "Hello, world"
-        label3.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(label3)
-        label3.textColor = .ypWhite
-        label3.leadingAnchor.constraint(equalTo: label2.leadingAnchor).isActive = true
-        label3.topAnchor.constraint(equalTo: label2.bottomAnchor, constant: 8).isActive = true
-        self.label3 = label3
-        label3.heightAnchor.constraint(equalToConstant: 18).isActive = true
-        label3.font = UIFont.systemFont(ofSize: 13, weight: .regular)
-        
-        let button = UIButton.systemButton(
-            with: UIImage(named: "Exit_button")!,
-            target: self,
-            action: #selector(Self.didTapButton)
-        )
-        button.tintColor = .ypRed
-        button.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(button)
-        button.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -16).isActive = true
-        button.centerYAnchor.constraint(equalTo: imageView.centerYAnchor).isActive = true
-        button.widthAnchor.constraint(equalToConstant: 44).isActive = true
-        button.heightAnchor.constraint(equalToConstant: 44).isActive = true
     }
     
-    @objc private func didTapButton() {
+    private func addSubViews() {
+        view.addSubview(profileImage)
+        view.addSubview(nameLabel)
+        view.addSubview(nickLabel)
+        view.addSubview(helloLabel)
+        view.addSubview(exitButton)
+    }
+    
+    private func applyConstraints() {
+        NSLayoutConstraint.activate([
+            profileImage.topAnchor.constraint(equalTo: view.topAnchor, constant: 76),
+            profileImage.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
+            profileImage.heightAnchor.constraint(equalToConstant: 70),
+            profileImage.widthAnchor.constraint(equalToConstant: 70),
+        ])
+        
+        NSLayoutConstraint.activate([
+            nameLabel.topAnchor.constraint(equalTo: profileImage.bottomAnchor, constant: 8),
+            nameLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
+            nameLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -124),
+        ])
+        
+        NSLayoutConstraint.activate([
+            nickLabel.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: 8),
+            nickLabel.leadingAnchor.constraint(equalTo: profileImage.leadingAnchor),
+        ])
+        
+        NSLayoutConstraint.activate([
+            helloLabel.topAnchor.constraint(equalTo: nickLabel.bottomAnchor, constant: 8),
+            helloLabel.leadingAnchor.constraint(equalTo: profileImage.leadingAnchor),
+            
+        ])
+        
+        NSLayoutConstraint.activate([
+            exitButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -26),
+            exitButton.centerYAnchor.constraint(equalTo: profileImage.centerYAnchor)
+        ])
     }
 }
-
 extension UIColor {
     static let ypWhite = UIColor(named: "YPWhite")
     static let ypRed = UIColor(named: "YPRed")
